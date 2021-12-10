@@ -7,6 +7,7 @@ const { validator, validateSenha,
    tokenValidate } = require('./validacoes/validateToken/emailValidate');
 const { nameValidate, ageValidate, objectCheckedDateRate,
    talkValidate, createTalker } = require('./createName/insertName');
+const editTalker = require('./createName/modifyName');
 
 const app = express();
 app.use(bodyParser.json());
@@ -24,6 +25,9 @@ app.listen(PORT, () => {
   console.log('Online');
 });
 app.get('/talker', getTalkers);
+
+app.put('/talker/:id', tokenValidate, nameValidate, ageValidate, 
+talkValidate, objectCheckedDateRate, editTalker);
 
 app.get('/talker/:id', getTalkerId);
 
