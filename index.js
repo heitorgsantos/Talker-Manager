@@ -8,6 +8,7 @@ const { validator, validateSenha,
 const { nameValidate, ageValidate, objectCheckedDateRate,
    talkValidate, createTalker } = require('./createName/insertName');
 const editTalker = require('./createName/modifyName');
+const deleteId = require('./createName/deleteId');
 
 const app = express();
 app.use(bodyParser.json());
@@ -36,3 +37,5 @@ app.post('/login', validator, validateSenha);
 app.post('/talker', tokenValidate,
  nameValidate, ageValidate, talkValidate,
   objectCheckedDateRate, createTalker);
+
+  app.delete('/talker/:id', tokenValidate, deleteId);
