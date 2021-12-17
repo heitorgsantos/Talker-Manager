@@ -38,4 +38,4 @@ app.post('/talker', tokenValidate,
  nameValidate, ageValidate, talkValidate,
   objectCheckedDateRate, createTalker);
 
-  app.delete('/talker/:id', tokenValidate, deleteId);
+app.delete('/talker/:id', tokenValidate, deleteId);
